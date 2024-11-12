@@ -20,17 +20,18 @@ mkdir -p $LOGDIR
 mkdir -p "$target_dir"
 mkdir -p "$target_dir/metadata"
 
-# Create link for every file in the source folder in the target folder
-for fichier in "$source_dir"/*; do
-    # Test if the file exite
-    if [ -f "$fichier" ]; then
+# Create link for every fastq file in the source folder in the target folder
+for file in "$source_dir"/*; do
+    # Test if the file exist
+    if [ -f "$file" ]; then
         # Take the name of the file
-        nom_fichier=$(basename "$fichier")
-        # Crée le lien symbolique dans le dossier cible
-        ln -s "$fichier" "$target_dir/$nom_fichier"
+        file_name=$(basename "$file")
+        # Create a link for the fastq file in the target directory
+        ln -s "$file" "$target_dir/$file_name"
     fi
 done
 
+#Create a text file containing the name of the sample the path to the read1 and the path to the read2
 for FILE in $target_dir/*_*1.fastq.gz
 do 
     PREFIX="${FILE%_*.fastq.gz}"

@@ -2,7 +2,7 @@
 #SBATCH --time=00:10:00
 #SBATCH --mem=1G
 #SBATCH --cpus-per-task=2
-#SBATCH --job-name=slurm_array
+#SBATCH --job-name=FastQC
 #SBATCH --output=/data/users/vmuller/rnaseq/log/Fastqc_%J.out
 #SBATCH --error=/data/users/vmuller/rnaseq/log/Fastqc_%J.err
 #SBATCH --partition=pibu_el8
@@ -14,6 +14,7 @@ OUTDIR="$WORKDIR/QC_results"
 SAMPLELIST="$WORKDIR/FASTQ/metadata/sample_list.txt"
 LOGDIR="/data/users/${USER}/rnaseq/log"
 
+#Create the directory for the error and output file if not present
 mkdir -p $LOGDIR
 
 
@@ -21,8 +22,6 @@ mkdir -p $LOGDIR
 SAMPLE=`awk -v line=$SLURM_ARRAY_TASK_ID 'NR==line{print $1; exit}' $SAMPLELIST`
 READ1=`awk -v line=$SLURM_ARRAY_TASK_ID 'NR==line{print $2; exit}' $SAMPLELIST`
 READ2=`awk -v line=$SLURM_ARRAY_TASK_ID 'NR==line{print $3; exit}' $SAMPLELIST`
-
-############################
 
 #Create the directory output if not present
 mkdir -p $OUTDIR
