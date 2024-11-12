@@ -4,12 +4,17 @@
 #SBATCH --time=00:05:10
 #SBATCH --partition=pibu_el8
 #SBATCH --job-name=sample_list
+#SBATCH --output=/data/users/vmuller/rnaseq/log/samplelist_%J.out
+#SBATCH --error=/data/users/vmuller/rnaseq/log/samplelist_%J.err
 
 
 # Dossier source et dossier cible
 source_dir="/data/courses/rnaseq_course/toxoplasma_de/reads"
-target_dir="../FASTQ"
+target_dir="/data/users/${USER}/rnaseq/FASTQ"
+LOGDIR="/data/users/${USER}/rnaseq/log"
 
+#Create the directory for the error and output file if not present
+mkdir -p $LOGDIR
 
 # Create the folder if it doesn't exist
 mkdir -p "$target_dir"
