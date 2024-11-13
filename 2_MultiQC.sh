@@ -7,8 +7,9 @@
 #SBATCH --error=/data/users/vmuller/rnaseq/log/Multiqc_%J.err
 #SBATCH --partition=pibu_el8
 
-FASTQCDIR="/data/users/${USER}/rnaseq/QC_results"
-LOGDIR="/data/users/${USER}/rnaseq/log"
+WORKDIR="/data/users/${USER}/rnaseq/"
+FASTQCDIR="$WORKDIR/QC_results"
+LOGDIR="$WORKDIR/log"
 
 #Create the directory for the error and output file if not present
 mkdir -p $LOGDIR

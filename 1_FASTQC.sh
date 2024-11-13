@@ -12,7 +12,7 @@
 WORKDIR="/data/users/${USER}/rnaseq/"
 OUTDIR="$WORKDIR/QC_results"
 SAMPLELIST="$WORKDIR/FASTQ/metadata/sample_list.txt"
-LOGDIR="/data/users/${USER}/rnaseq/log"
+LOGDIR="$WORKDIR/log"
 
 #Create the directory for the error and output file if not present
 mkdir -p $LOGDIR
