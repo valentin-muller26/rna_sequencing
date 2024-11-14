@@ -1,5 +1,5 @@
-#!/bin/bash
-#SBATCH --time=00:10:00
+#!/usr/bin/env bash
+#SBATCH --time=01:00:00
 #SBATCH --mem=1G
 #SBATCH --cpus-per-task=2
 #SBATCH --job-name=FastQC

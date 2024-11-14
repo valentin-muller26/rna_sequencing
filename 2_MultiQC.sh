@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #SBATCH --time=00:10:00
 #SBATCH --mem=100M
 #SBATCH --cpus-per-task=1
@@ -7,6 +7,7 @@
 #SBATCH --error=/data/users/vmuller/rnaseq/log/Multiqc_%J.err
 #SBATCH --partition=pibu_el8
 
+#Define variable
 WORKDIR="/data/users/${USER}/rnaseq/"
 FASTQCDIR="$WORKDIR/QC_results"
 LOGDIR="$WORKDIR/log"
