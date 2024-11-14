@@ -14,10 +14,17 @@ LOGDIR="$WORKDIR/log"
 
 #Create the directory for the error and output file if not present
 mkdir -p $LOGDIR
+
 mkdir -p $REFGENDIR
 
 #move to the folder for the reference genome and download the fa and gff file from ensembl
 cd $REFGENDIR
 wget https://ftp.ensembl.org/pub/release-113/fasta/mus_musculus/dna/Mus_musculus.GRCm39.dna.primary_assembly.fa.gz
 wget https://ftp.ensembl.org/pub/release-113/gtf/mus_musculus/Mus_musculus.GRCm39.113.gtf.gz
+
+echo "Checksum for fasta file"
+sum $REFGENDIR/Mus_musculus.GRCm39.dna.primary_assembly.fa.gz
+echo "Checksum for fasta file"
+sum $REFGENDIR/Mus_musculus.GRCm39.113.gtf.gz
+
 
