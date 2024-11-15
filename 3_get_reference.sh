@@ -24,7 +24,7 @@ wget https://ftp.ensembl.org/pub/release-113/gtf/mus_musculus/Mus_musculus.GRCm3
 
 echo "Checksum for fasta file"
 sum $REFGENDIR/Mus_musculus.GRCm39.dna.primary_assembly.fa.gz
-echo "Checksum for fasta file"
+echo "Checksum for gtf file"
 sum $REFGENDIR/Mus_musculus.GRCm39.113.gtf.gz
 
-
+ 
