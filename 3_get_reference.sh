@@ -8,23 +8,29 @@
 #SBATCH --partition=pibu_el8
 
 #Define variable
-WORKDIR="/data/users/${USER}/rnaseq/"
+WORKDIR="/data/users/${USER}/rnaseq"
 REFGENDIR="$WORKDIR/reference_genome"
 LOGDIR="$WORKDIR/log"
-
+REFGENOMEFILE="Mus_musculus.GRCm39.dna.primary_assembly.fa.gz"
+ANNOTATIONFILE=Mus_musculus.GRCm39.113.gtf.gz
 #Create the directory for the error and output file if not present
 mkdir -p $LOGDIR
 
 mkdir -p $REFGENDIR
 
-#move to the folder for the reference genome and download the fa and gff file from ensembl
+#move to the folder for the reference genome and download the fa and gtf file from ensembl
 cd $REFGENDIR
-wget https://ftp.ensembl.org/pub/release-113/fasta/mus_musculus/dna/Mus_musculus.GRCm39.dna.primary_assembly.fa.gz
-wget https://ftp.ensembl.org/pub/release-113/gtf/mus_musculus/Mus_musculus.GRCm39.113.gtf.gz
+wget https://ftp.ensembl.org/pub/release-113/fasta/mus_musculus/dna/$REFGENOMEFILE
+wget https://ftp.ensembl.org/pub/release-113/gtf/mus_musculus/$ANNOTATIONFILE
 
+#Doing the checksum for the file to be sure that they were no error during the downloading
 echo "Checksum for fasta file"
-sum $REFGENDIR/Mus_musculus.GRCm39.dna.primary_assembly.fa.gz
+sum $REFGENDIR/$REFGENOMEFILE
 echo "Checksum for gtf file"
-sum $REFGENDIR/Mus_musculus.GRCm39.113.gtf.gz
+sum $REFGENDIR/$ANNOTATIONFILE
 
- 
+#unzip the reference genome for later step
+gunzip $REFGENDIR/$REFGENOMEFILE
+
+#unzip the annotation file for later step
+gunzip $REFGENDIR/$ANNOTATIONFILE

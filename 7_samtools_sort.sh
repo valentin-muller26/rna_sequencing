@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 #SBATCH --time=01:00:00
-#SBATCH --mem=25G
-#SBATCH --cpus-per-task=4
+#SBATCH --mem=30000M
+#SBATCH --cpus-per-task=5
 #SBATCH --job-name=samtools_sort
 #SBATCH --output=/data/users/vmuller/rnaseq/log/samtools_sort_%J.out
 #SBATCH --error=/data/users/vmuller/rnaseq/log/samtools_sort_%J.err
 #SBATCH --partition=pibu_el8
-#SBATCH --array=0-31
+#SBATCH --array=1-16
 
 
 WORKDIR="/data/users/${USER}/rnaseq/"
@@ -23,6 +23,5 @@ SAMPLE=`awk -v line=$SLURM_ARRAY_TASK_ID 'NR==line{print $1; exit}' $SAMPLELIST`
 READ1=`awk -v line=$SLURM_ARRAY_TASK_ID 'NR==line{print $2; exit}' $SAMPLELIST`
 READ2=`awk -v line=$SLURM_ARRAY_TASK_ID 'NR==line{print $3; exit}' $SAMPLELIST`
 
-
 #sorting the bam file
-apptainer exec --bind $WORKDIR /containers/apptainer/hisat2_samtools_408dfd02f175cd88.sif samtools sort -m 1000 -@ 4 -o $OUTDIR/${SAMPLE}sorted.bam -T temp $OUTDIR/$SAMPLE.bam
+apptainer exec --bind $WORKDIR /containers/apptainer/hisat2_samtools_408dfd02f175cd88.sif samtools sort -m 27000M -@ 5 -o $OUTDIR/${SAMPLE}sorted.bam -T temp $OUTDIR/$SAMPLE.bam

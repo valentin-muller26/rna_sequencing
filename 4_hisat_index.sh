@@ -20,7 +20,4 @@ mkdir -p $LOGDIR
 
 mkdir -p $INDEXDIR
 
-#unzip the file for the indexing 
-gunzip $REFGENDIR/$REFGENOMEFILE.gz
-
 apptainer exec --bind $WORKDIR /containers/apptainer/hisat2_samtools_408dfd02f175cd88.sif hisat2-build $REFGENDIR/$REFGENOMEFILE $INDEXDIR/genome_index
