@@ -8,7 +8,7 @@
 #SBATCH --partition=pibu_el8
 
 #Define variable
-WORKDIR="/data/users/${USER}/rnaseq/"
+WORKDIR="/data/users/${USER}/rnaseq"
 FASTQCDIR="$WORKDIR/QC_results"
 LOGDIR="$WORKDIR/log"
 

@@ -8,7 +8,7 @@
 #SBATCH --partition=pibu_el8
 #SBATCH --array=1-16
 
-WORKDIR="/data/users/${USER}/rnaseq/"
+WORKDIR="/data/users/${USER}/rnaseq"
 LOGDIR="$WORKDIR/log"
 SAMPLELIST="$WORKDIR/FASTQ/metadata/sample_list.txt"
 MAPPINGDIR="$WORKDIR/mapping"
@@ -21,12 +21,10 @@ mkdir -p $LOGDIR
 
 mkdir -p $OUTDIR
 
-#unzip the annotation file 
-gunzip $ANNOTATIONFILE.gz
-
 #take the sample name, path to the read1 and read2 line by line 
 SAMPLE=`awk -v line=$SLURM_ARRAY_TASK_ID 'NR==line{print $1; exit}' $SAMPLELIST`
 READ1=`awk -v line=$SLURM_ARRAY_TASK_ID 'NR==line{print $2; exit}' $SAMPLELIST`
 READ2=`awk -v line=$SLURM_ARRAY_TASK_ID 'NR==line{print $3; exit}' $SAMPLELIST`
 
-apptainer exec --bind $WORKDIR /containers/apptainer/subread_2.0.1–hed695b0_0.sif featureCounts -T4 -p --countReadPairs -s2 -t exon -g gene_id -a $ANNOTATIONFILE -o $OUTDIR/${SAMPLE}_count.txt $MAPPINGDIR/${SAMPLE}.bam
+apptainer exec --bind $WORKDIR /containers/apptainer/subread_2.0.1--hed695b0_0.sif featureCounts -T4 -p -s2 -t exon -g gene_id -a $ANNOTATIONFILE -o $OUTDIR/${SAMPLE}_count.txt $MAPPINGDIR/${SAMPLE}.bam
+

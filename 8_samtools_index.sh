@@ -9,7 +9,7 @@
 #SBATCH --array=1-16
 
 
-WORKDIR="/data/users/${USER}/rnaseq/"
+WORKDIR="/data/users/${USER}/rnaseq"
 LOGDIR="$WORKDIR/log"
 SAMPLELIST="$WORKDIR/FASTQ/metadata/sample_list.txt"
 OUTDIR=$WORKDIR/mapping

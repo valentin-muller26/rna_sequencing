@@ -9,7 +9,7 @@
 #SBATCH --array=1-16
 
 
-WORKDIR="/data/users/${USER}/rnaseq/"
+WORKDIR="/data/users/${USER}/rnaseq"
 LOGDIR="$WORKDIR/log"
 SAMPLELIST="$WORKDIR/FASTQ/metadata/sample_list.txt"
 OUTDIR=$WORKDIR/mapping
@@ -27,4 +27,5 @@ READ2=`awk -v line=$SLURM_ARRAY_TASK_ID 'NR==line{print $3; exit}' $SAMPLELIST`
 #converting sam to bam file
 apptainer exec --bind $WORKDIR /containers/apptainer/hisat2_samtools_408dfd02f175cd88.sif samtools view -hbS $OUTDIR/$SAMPLE.sam > $OUTDIR/$SAMPLE.bam
 
+#delete the sam file 
 rm $OUTDIR/$SAMPLE.sam 
