@@ -1,6 +1,6 @@
 # rna_sequencing
 
-<!-- toc -->
+[TOC]
 
 ## About the project
 
