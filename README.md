@@ -45,6 +45,10 @@ The Quality control step involves two script :
 
 ## 2. Map reads to the reference genome
 
+the mapping stage is carried out in 3 main steps
+- Recover reference genome and annotation
+- Mapping to the reference genome
+- Processing the sam file
 
 
 ## 3. Count the number of reads per gene
