@@ -3,8 +3,9 @@
 ## About the project
 
 ### list of sample 
-Sample	Group
-SRR7821921	Lung_WT_Case
+|Sample	|Group|
+|-------|------|
+|SRR7821921|	Lung_WT_Case|
 SRR7821922	Lung_WT_Case
 SRR7821918	Lung_WT_Case
 SRR7821919	Lung_WT_Case
