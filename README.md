@@ -21,6 +21,8 @@ SRR7821953	|Blood_WT_Case
 SRR7821968	|Blood_WT_Control
 SRR7821969	|Blood_WT_Control
 SRR7821970|	Blood_WT_Control
+
+*Table 1: List of all the sample, the column sample correspond to the name of the fastq file,  the group case are the infected mice and the group control are the non infected mice.*
 ## Overview of the workflow
 
 ## 0. getting started
