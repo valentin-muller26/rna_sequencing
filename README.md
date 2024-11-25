@@ -45,10 +45,13 @@ The Quality control step involves two script :
 
 ## 2. Map reads to the reference genome
 
-the mapping stage is carried out in 3 main steps
-- Recover reference genome (Mus_musculus.GRCm39.dna.primary_assembly.fa) and annotation (Mus_musculus.GRCm39.113.gtf) from Ensemble
-- Mapping to the reference genome
-- Processing the sam file
+the mapping step is carried out by the following script
+- 3_get_reference :Download reference genome (Mus_musculus.GRCm39.dna.primary_assembly.fa) and annotation (Mus_musculus.GRCm39.113.gtf) from Ensembl
+- 4_hisat_index : Generate index of the reference for the mapping step
+- 5_hisat_mapping : Maps the reads to the reference genome
+- 6_samtools_conversion_bam: Convert the sam files generated during the last step to a bam file
 
 
 ## 3. Count the number of reads per gene
+
+This step uses the script 9_featurecount that produce a table of counts containing the number of reads per gene in each sample and a summary file. 
