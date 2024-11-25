@@ -46,7 +46,7 @@ The Quality control step involves two script :
 ## 2. Map reads to the reference genome
 
 the mapping stage is carried out in 3 main steps
-- Recover reference genome and annotation
+- Recover reference genome (Mus_musculus.GRCm39.dna.primary_assembly.fa) and annotation ( from Ensemble
 - Mapping to the reference genome
 - Processing the sam file
 
