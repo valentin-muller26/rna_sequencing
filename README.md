@@ -6,7 +6,7 @@
 - [Overview of the workflow](#overview-of-the-workflow)
   - [0. Getting started](#0-getting-started)
   - [1. Quality control](#1-quality-control)
-  - [2. Map reads to the reference genome](#2-map-reads-to-the-reference-genome
+  - [2. Map reads to the reference genome](#2-map-reads-to-the-reference-genome)
   
 ## About the project
 
