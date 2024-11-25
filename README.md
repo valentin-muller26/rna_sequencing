@@ -1,5 +1,7 @@
 # rna_sequencing
 
+<!-- toc -->
+
 ## About the project
 
 ### list of sample 
@@ -22,7 +24,7 @@ SRR7821968	|Blood_WT_Control
 SRR7821969	|Blood_WT_Control
 SRR7821970|	Blood_WT_Control
 
-*Table 1: List of all the sample, the column sample correspond to the name of the fastq file,  the group case are the infected mice and the group control are the non infected mice.*
+*Table 1: List of samples. The "Sample" column corresponds to the names of the FASTQ files. The "Case" group includes infected mice, while the "Control" group represents non-infected mice.*
 ## Overview of the workflow
 
 ## 0. getting started
@@ -31,7 +33,10 @@ This step consist of the script named 0_get_samplelist used for organizing and .
 
 ## 1. Quality control 
 
-The Quality control step consist of the script 1_FASTQC that generate individual quality control report for each sample and the 2_MultiQC script that combines all the report together in a single file, facilitating the assessment of data quality across all samples.
+The Quality control step involves two script :
+of the script
+-1_FASTQC : Generate individual quality control report for each sample
+-2_MultiQC : Combines all the indvidual report in a single file, facilitating the assessment of data quality across all samples.
 
 ## 2. Map reads to the reference genome
 
