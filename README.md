@@ -1,7 +1,13 @@
 # rna_sequencing
 
-[TOC]
-
+## Table of Contents
+- [About the project](#about-the-project)
+  - [List of sample](#list-of-sample)
+- [Overview of the workflow](#overview-of-the-workflow)
+  - [0. Getting started](#0-getting-started)
+  - [1. Quality control](#1-quality-control)
+  - [2. Map reads to the reference genome](#2-map-reads-to-the-reference-genome
+  
 ## About the project
 
 ### list of sample 
