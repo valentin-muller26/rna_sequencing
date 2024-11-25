@@ -40,7 +40,6 @@ This step consist of the script named 0_get_samplelist used for organizing and .
 ## 1. Quality control 
 
 The Quality control step involves two script :
-of the script:
 - 1_FASTQC : Generate individual quality control report for each sample
 - 2_MultiQC : Combines all the indvidual report in a single file, facilitating the assessment of data quality across all samples.
 
