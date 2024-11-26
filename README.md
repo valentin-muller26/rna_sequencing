@@ -9,6 +9,9 @@
   - [2. Map reads to the reference genome](#2-map-reads-to-the-reference-genome)
   
 ## About the project
+The following workflow is part of a project that examine how *Toxoplasma gondii* infection impact the expression of gene in mouse blood and lung tissues. The goal of this project is to identify genes differentially expressed between the different tissues and treatment and find GO terms enriched in these genes.
+
+The dataset utilized for this project come from the study by [Singhania et al. (2019)](https://www.nature.com/articles/s41467-019-10601-6)
 
 ### list of sample 
 |Sample	|Group|
