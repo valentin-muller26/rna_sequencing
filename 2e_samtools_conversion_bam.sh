@@ -8,7 +8,7 @@
 #SBATCH --partition=pibu_el8
 #SBATCH --array=1-16
 
-
+#Setting the constant for the directories and required files
 WORKDIR="/data/users/${USER}/rnaseq"
 LOGDIR="$WORKDIR/log"
 SAMPLELIST="$WORKDIR/FASTQ/metadata/sample_list.txt"

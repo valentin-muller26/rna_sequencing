@@ -7,7 +7,7 @@
 #SBATCH --error=/data/users/vmuller/rnaseq/log/hisat_index_%J.err
 #SBATCH --partition=pibu_el8
 
-#Define variable
+#Setting the constant for the directories and required files
 WORKDIR="/data/users/${USER}/rnaseq"
 REFGENDIR="$WORKDIR/reference_genome"
 LOGDIR="$WORKDIR/log"

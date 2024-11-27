@@ -7,7 +7,7 @@
 #SBATCH --error=/data/users/vmuller/rnaseq/log/Multiqc_%J.err
 #SBATCH --partition=pibu_el8
 
-#Define variable
+#Setting the constant for the directories and required files
 WORKDIR="/data/users/${USER}/rnaseq"
 FASTQCDIR="$WORKDIR/QC_results"
 LOGDIR="$WORKDIR/log"

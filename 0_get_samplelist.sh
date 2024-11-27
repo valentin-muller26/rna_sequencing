@@ -8,7 +8,7 @@
 #SBATCH --error=/data/users/vmuller/rnaseq/log/samplelist_%J.err
 
 
-# Definine variable
+#Setting the constant for the directories
 WORKDIR="/data/users/${USER}/rnaseq/"
 READSDIR="/data/courses/rnaseq_course/toxoplasma_de/reads"
 OUTDIR="$WORKDIR/FASTQ"
