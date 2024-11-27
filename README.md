@@ -37,25 +37,33 @@ SRR7821970|	Blood_WT_Control
 *Table 1: List of samples. The "Sample" column corresponds to the names of the FASTQ files. The "Case" group includes infected mice, while the "Control" group represents non-infected mice.*
 ## Overview of the workflow
 
-## 0. getting started
+## 0. Getting started
 
 This step consist of the script named 0_get_samplelist used for organizing and ... This script create a FASTQ directory where links to all FASTQ files are created. Additionally, it creates a metadata folder containing the sample_list file. This file lists the name of each sample along with the corresponding paths to the Read1 and Read 2 FASTQ files.
 
 ## 1. Quality control 
 
 The Quality control step involves two script :
-- 1_FASTQC : Generate individual quality control report for each sample
-- 2_MultiQC : Combines all the indvidual report in a single file, facilitating the assessment of data quality across all samples.
+- 1a_FASTQC : Generate individual quality control report for each sample
+- 1b_MultiQC : Combines all the indvidual report in a single file, facilitating the assessment of data quality across all samples.
 
 ## 2. Map reads to the reference genome
 
 the mapping step is carried out by the following script
-- 3_get_reference :Download reference genome (Mus_musculus.GRCm39.dna.primary_assembly.fa) and annotation (Mus_musculus.GRCm39.113.gtf) from Ensembl
-- 4_hisat_index : Generate index of the reference for the mapping step
-- 5_hisat_mapping : Maps the reads to the reference genome
-- 6_samtools_conversion_bam: Convert the sam files generated during the last step to a bam file
-
+- 2a_get_reference :Download reference genome (Mus_musculus.GRCm39.dna.primary_assembly.fa) and annotation (Mus_musculus.GRCm39.113.gtf) from Ensembl
+- 2b_hisat_index : Generate index of the reference for the mapping step using the tools hisat
+- 2c_hisat_mapping : Maps the reads to the reference genome using hisat and the following parameter :
+    - -1 path to the first read
+    - -2 path to the second read
+    - -S : path to output file 
+    - --threads :number of threads use by hisat
+    - --rna-strandness RF specify that the first read is the reverse strand
+    - --summary-file : allow to create a summary file containing statistic about the mapping
+- 2e_samtools_conversion_bam: Convert the sam files generated during the last step to a bam file
+- 2f_samtools_sort : Sort the bam files
+- 3g samtools_index : index the bam files
 
 ## 3. Count the number of reads per gene
-
-This step uses the script 9_featurecount that produce a table of counts containing the number of reads per gene in each sample and a summary file. 
+This step uses the script 3_featurecount that use the tools featurecount to produce a table of counts containing the number of reads per gene in each sample and a summary file. 
+The featurecount tools use the following parameter :
+- -T4 -p -s2 -Q10 -t exon -g gene_id -a $ANNOTATIONFILE -o "$OUTDIR/gene_count.txt" $MAPPINGDIR/*sorted.bam
