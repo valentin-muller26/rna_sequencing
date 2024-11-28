@@ -27,5 +27,5 @@ READ2=`awk -v line=$SLURM_ARRAY_TASK_ID 'NR==line{print $3; exit}' $SAMPLELIST`
 mkdir -p $OUTDIR
 cd $OUTDIR
 
-#run fastqc for both read and put the result in the outdir
+#run fastqc with two thread (-t2 ) for both read ($READ1 $READ2) and put the result in the outdir (-o $OUTDIR)
 apptainer exec --bind /data /containers/apptainer/fastqc-0.12.1.sif fastqc -t 2 $READ1 $READ2 -o $OUTDIR

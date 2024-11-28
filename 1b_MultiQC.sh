@@ -15,6 +15,5 @@ LOGDIR="$WORKDIR/log"
 #Create the directory for the error and output file if not present
 mkdir -p $LOGDIR
 
-
-cd $FASTQCDIR
+#Use the tools Multiqc to combine all the individual quality report ($FASTQCDIR) in the file specified by the -n option
 apptainer exec --bind $FASTQCDIR /containers/apptainer/multiqc-1.19.sif multiqc $FASTQCDIR -n multiqc_report.html
