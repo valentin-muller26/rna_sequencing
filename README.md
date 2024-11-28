@@ -7,6 +7,7 @@
   - [0. Getting started](#0-getting-started)
   - [1. Quality control](#1-quality-control)
   - [2. Map reads to the reference genome](#2-map-reads-to-the-reference-genome)
+  - [3. Count the number of reads per gene](#3-Count-the-number-of-reads-per-gene)
   
 ## About the project
 
