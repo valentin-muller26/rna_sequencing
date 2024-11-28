@@ -35,3 +35,7 @@ do
     SAMPLE=`basename $PREFIX`
     echo -e "${SAMPLE}\t$FILE\t${FILE%?.fastq.gz}2.fastq.gz" 
 done > $METADATADIR/sample_list.txt
+
+#Copy the README FILE and recover only the table for the sample
+cp $READSDIR/README $OUTDIR
+tail -n +9 $OUTDIR/README > $OUTDIR/tablesample.txt

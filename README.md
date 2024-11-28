@@ -1,4 +1,4 @@
-# rna_sequencing
+# RNA sequencing
 
 ## Table of Contents
 - [About the project](#about-the-project)
@@ -74,11 +74,12 @@ The featurecount tools use the following parameter :
 - -T : number of thread used by featurecount
 - -p : specify that the reads were sequenced pair-end
 - -s2 : specify that the first read is the reverse strand
-- Q10 : only consider the align read with a quality equal or higher than 10
-- -t exon :
-- -g gene_id :
+- -Q10 : only consider the align read with a quality equal or higher than 10
+- -t exon : specifies that feature should count reads based on the exon feature type in the input annotation file
+- -g gene_id : specifies which attribute in the annotation file should be used to group exons into genes for counting.
 - -a : path to the annotation file
 - -o : path and name of the outputfile
 
 ## 4 Exploratory data analysis
 
+DEseq2
