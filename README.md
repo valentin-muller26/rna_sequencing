@@ -9,12 +9,14 @@
   - [2. Map reads to the reference genome](#2-map-reads-to-the-reference-genome)
   
 ## About the project
+
 The following workflow is part of a project that examine how *Toxoplasma gondii* infection impact the expression of gene in mouse blood and lung tissues. The goal of this project is to identify genes differentially expressed between the different tissues and treatment and find GO terms enriched in these genes.
 
 The dataset utilized for this project come from the study by [Singhania et al. (2019)](https://www.nature.com/articles/s41467-019-10601-6). The data consist of 3 biological replicates for the control samples and 5 replicates of the *Toxoplasma* infected mices (Case) in both lung and blood tissues ([Table 1](#list-of-samples)).
 Libraries were constructed using a strand-specific protocol and sequenced in high-resolution paired-end mode with the Illumina HiSeq 4000 platform
 
 ### List of sample 
+
 |Sample	|Group|
 |-------|------|
 |SRR7821921|	Lung_WT_Case|
@@ -65,7 +67,7 @@ the mapping step is carried out by the following scripts :
 - 3g samtools_index : index the bam files
 
 ## 3. Count the number of reads per gene
-This step uses the script 3_featurecount version v2.0.1 that use the tools featurecount to produce a table of counts containing the number of reads per gene in each sample and a summary file. 
+This step uses the script 3_featurecount that use the tools featurecount version v2.0.1 to produce a table of counts containing the number of reads per gene in each sample and a summary file. 
 The featurecount tools use the following parameter :
 - -T : number of thread used by featurecount
 - -p : specify that the reads were sequenced pair-end
@@ -75,3 +77,6 @@ The featurecount tools use the following parameter :
 - g gene_id :
 - a : path to the annotation file
 - o : path and name of the outputfile
+
+## 4 Exploratory data analysis
+
