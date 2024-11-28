@@ -68,16 +68,17 @@ the mapping step is carried out by the following scripts :
 - 3g samtools_index : index the bam files
 
 ## 3. Count the number of reads per gene
+
 This step uses the script 3_featurecount that use the tools featurecount version v2.0.1 to produce a table of counts containing the number of reads per gene in each sample and a summary file. 
 The featurecount tools use the following parameter :
 - -T : number of thread used by featurecount
 - -p : specify that the reads were sequenced pair-end
 - -s2 : specify that the first read is the reverse strand
 - Q10 : only consider the align read with a quality equal or higher than 10
-- t exon :
-- g gene_id :
-- a : path to the annotation file
-- o : path and name of the outputfile
+- -t exon :
+- -g gene_id :
+- -a : path to the annotation file
+- -o : path and name of the outputfile
 
 ## 4 Exploratory data analysis
 
