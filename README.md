@@ -13,31 +13,31 @@
 
 The following workflow is part of a project that examine how *Toxoplasma gondii* infection impact the expression of gene in mouse blood and lung tissues. The goal of this project is to identify genes differentially expressed between the different tissues and treatment and find GO terms enriched in these genes.
 
-The dataset utilized for this project come from the study by [Singhania et al. (2019)](https://www.nature.com/articles/s41467-019-10601-6). The data consist of 3 biological replicates for the control samples and 5 replicates of the *Toxoplasma* infected mices (Case) in both lung and blood tissues ([Table 1](#list-of-samples)).
+The dataset utilized for this project come from the study by [Singhania et al. (2019)](https://www.nature.com/articles/s41467-019-10601-6) and can be found in Gene Expression Omnibus (GEO), accession GSE119855. The data consist of 3 biological replicates for the control samples and 5 replicates of the *Toxoplasma* infected mices (Case) in both lung and blood tissues ([Table 1](#list-of-samples)).
 Libraries were constructed using a strand-specific protocol and sequenced in high-resolution paired-end mode with the Illumina HiSeq 4000 platform
 
 ### List of sample 
+*Table 1: List of samples. The "Sample" column corresponds to the names of the FASTQ files. The "Case" group includes infected mice, while the "Control" group represents non-infected mice.*
 
 |Sample	|Group|
 |-------|------|
-|SRR7821921|	Lung_WT_Case|
-SRR7821922|	Lung_WT_Case
-SRR7821918	|Lung_WT_Case
-SRR7821919	|Lung_WT_Case
-SRR7821920|	Lung_WT_Case
-SRR7821937	|Lung_WT_Control
-SRR7821938	|Lung_WT_Control
-SRR7821939	|Lung_WT_Control
-SRR7821949	|Blood_WT_Case
-SRR7821950	|Blood_WT_Case
-SRR7821951	|Blood_WT_Case
-SRR7821952	|Blood_WT_Case
-SRR7821953	|Blood_WT_Case
-SRR7821968	|Blood_WT_Control
-SRR7821969	|Blood_WT_Control
-SRR7821970|	Blood_WT_Control
+|SRR7821921|	Lung Case|
+SRR7821922|	Lung Case
+SRR7821918	|Lung Case
+SRR7821919	|Lung Case
+SRR7821920|	Lung Case
+SRR7821937	|Lung Control
+SRR7821938	|Lung Control
+SRR7821939	|Lung Control
+SRR7821949	|Blood Case
+SRR7821950	|Blood Case
+SRR7821951	|Blood Case
+SRR7821952	|Blood Case
+SRR7821953	|Blood Case
+SRR7821968	|Blood Control
+SRR7821969	|Blood Control
+SRR7821970|	Blood Control
 
-*Table 1: List of samples. The "Sample" column corresponds to the names of the FASTQ files. The "Case" group includes infected mice, while the "Control" group represents non-infected mice.*
 ## Overview of the workflow
 
 ## 0. Getting started
