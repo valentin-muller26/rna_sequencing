@@ -8,6 +8,7 @@
   - [1. Quality control](#1-quality-control)
   - [2. Map reads to the reference genome](#2-map-reads-to-the-reference-genome)
   - [3. Count the number of reads per gene](#3-Count-the-number-of-reads-per-gene)
+  - [4 Differential expression analysis](#4-Differential-expression-analysis)
   
 ## About the project
 
@@ -46,9 +47,9 @@ This step consists of the script named 0_get_samplelist used for organizing and 
 
 ## 1. Quality control 
 
-The Quality control step involves two script :
-- 1a_FASTQC : Generate individual quality control report for each sample
-- 1b_MultiQC : Combines all the indvidual report in a single file, facilitating the assessment of data quality across all samples.
+The Quality control step involves two scripts :
+- 1a_FASTQC : Generate individual quality control reports for each sample.
+- 1b_MultiQC : Combines all the individual reports in a single file, facilitating the assessment of data quality across all samples.
 
 ## 2. Map reads to the reference genome
 
@@ -80,6 +81,6 @@ The featurecount tools use the following parameter :
 - -a : path to the annotation file
 - -o : path and name of the outputfile
 
-## 4 Exploratory data analysis
+## 4 Differential expression analysis 
 
 DEseq2
