@@ -42,7 +42,7 @@ SRR7821970|	Blood Control
 
 ## 0. Getting started
 
-This step consist of the script named 0_get_samplelist used for organizing and generating the file contaning the list of the samples essential for the rest of the workflow. This script create a FASTQ directory where links to all FASTQ files are created. Additionally, it creates a metadata folder containing the sample_list file. This file lists the name of each sample along with the corresponding paths to the Read1 and Read 2 FASTQ files.
+This step consists of the script named 0_get_samplelist used for organizing and generating the file containing the list of the samples essential for the rest of the workflow. This script creates a FASTQ directory where links to all FASTQ files are created. Additionally, it makes a metadata folder containing the sample_list file. This file lists the name of each sample along with the corresponding paths to the Mate 1 and Mate 2 FASTQ files and also creates a file that recovers the table of the README file containing the names of all samples and their corresponding group.
 
 ## 1. Quality control 
 
@@ -56,8 +56,8 @@ the mapping step is carried out by the following scripts :
 - 2a_get_reference :Download reference genome (Mus_musculus.GRCm39.dna.primary_assembly.fa) and annotation (Mus_musculus.GRCm39.113.gtf) from Ensembl
 - 2b_hisat_index : Generate index of the reference genome using the tools hisat 
 - 2c_hisat_mapping : Maps the reads to the reference genome using hisat and the following parameter :
-    - -1 : path to the first read
-    - -2 : path to the second read
+    - -1 : path to the first mate
+    - -2 : path to the second mate
     - -S : path to output file 
     - --threads : number of threads use by hisat
     - --rna-strandness RF :  specify that the first read is the reverse strand
