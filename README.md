@@ -53,20 +53,29 @@ The Quality control step involves two scripts :
 
 ## 2. Map reads to the reference genome
 
-the mapping step is carried out by the following scripts :
-- 2a_get_reference :Download reference genome (Mus_musculus.GRCm39.dna.primary_assembly.fa) and annotation (Mus_musculus.GRCm39.113.gtf) from Ensembl
-- 2b_hisat_index : Generate index of the reference genome using the tools hisat 
-- 2c_hisat_mapping : Maps the reads to the reference genome using hisat and the following parameter :
+The mapping step is carried out by the following scripts :
+- 2a_get_reference : Download reference genome (Mus_musculus.GRCm39.dna.primary_assembly.fa) and annotation (Mus_musculus.GRCm39.113.gtf) from Ensembl and perform a checksum verification step was performed to confirm that no corruption occurred during the download process.
+- 2b_hisat_index : Generate indexes of the reference genome using the tools hisat 
+- 2c_hisat_mapping : Maps the reads to the reference genome using hisat with the following parameter :
+    - -x : path to the index of the reference genome
     - -1 : path to the first mate
     - -2 : path to the second mate
     - -S : path to output file 
-    - --threads : number of threads use by hisat
+    - --threads : number of threads used by hisat
     - --rna-strandness RF :  specify that the first read is the reverse strand
-    - --summary-file : allow to create a summary file containing statistic about the mapping
-- 2d_merging_summary_mapping : (Optional) Combine all the summary file generated during the mapping in one file
-- 2e_samtools_conversion_bam: Convert the sam files generated during the last step to a bam file
-- 2f_samtools_sort : Sort the bam files
-- 3g samtools_index : index the bam files
+    - --summary-file : allows creation of a summary file containing statistics about the mapping
+- 2d_merging_summary_mapping : (Optional) Combine all the summary files generated during the mapping in one file 
+- 2e_samtools_conversion_bam: Convert the sam files generated during the last step to a bam file with the following parameter
+    - -h : Include the header in the output file
+    - -b : convert the output file to the BAM format
+    - -S : Inform that the input file is in SAM format
+- 2f_samtools_sort : Sort the BAM files, this script uses the following parameters:
+    - -@ :  specify the number of thread
+    - -m : specify the memory per thread
+    - -t : indicates the name of the temporary files
+    - -o : indicates the path and name of the output file 
+- 2g samtools_index : Index the BAM files
+- 2h_samtools_flagstat : (Optional) Generate supplementary alignment statistics from the BAM files
 
 ## 3. Count the number of reads per gene
 
