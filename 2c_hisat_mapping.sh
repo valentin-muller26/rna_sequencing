@@ -20,6 +20,7 @@ OUTDIR=$WORKDIR/mapping
 #Create the directory for the error and output file if not present
 mkdir -p $LOGDIR
 
+#Create the output directory
 mkdir -p $OUTDIR
 
 

@@ -24,8 +24,8 @@ READ1=`awk -v line=$SLURM_ARRAY_TASK_ID 'NR==line{print $2; exit}' $SAMPLELIST`
 READ2=`awk -v line=$SLURM_ARRAY_TASK_ID 'NR==line{print $3; exit}' $SAMPLELIST`
 
 
-#converting sam to bam file
+#converting sam file to bam file
 apptainer exec --bind $WORKDIR /containers/apptainer/hisat2_samtools_408dfd02f175cd88.sif samtools view -hbS $OUTDIR/$SAMPLE.sam > $OUTDIR/$SAMPLE.bam
 
-#delete the sam file 
+#Delete the sam file 
 rm $OUTDIR/$SAMPLE.sam 
