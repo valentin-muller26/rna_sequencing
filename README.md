@@ -79,16 +79,16 @@ The mapping step is carried out by the following scripts :
 
 ## 3. Count the number of reads per gene
 
-This step uses the script 3_featurecount that use the tools featurecount version v2.0.1 to produce a table of counts containing the number of reads per gene in each sample and a summary file. 
-The featurecount tools use the following parameter :
-- -T : number of thread used by featurecount
+This step uses the script 3_featurecount that use the tools featurecount version v2.0.1, to produce a table of counts containing the number of reads per gene in each sample and a summary file. 
+The featurecount tools use the following parameters :
+- -T : number of threads used by featurecount
 - -p : specify that the reads were sequenced pair-end
 - -s2 : specify that the first read is the reverse strand
-- -Q10 : only consider the align read with a quality equal or higher than 10
+- -Q10 : only consider the aligned read with a quality equal or higher than 10
 - -t exon : specifies that feature should count reads based on the exon feature type in the input annotation file
 - -g gene_id : specifies which attribute in the annotation file should be used to group exons into genes for counting.
 - -a : path to the annotation file
-- -o : path and name of the outputfile
+- -o : path and name of the output file
 
 ## 4 Differential expression analysis 
 
