@@ -9,8 +9,15 @@ DATADIR = "C:\\Users\\valen\\OneDrive\\Bureau\\rna-seq\\"
 setwd(DATADIR)
 source("4a_DE_utils.R")
 
-#retrieving the dds data
+#Retrieving the dds data
 dds <- readRDS(DDS_FILE)
+
+# Rename for the legend of the PCAplot
+colData(dds)$tissu_treatment <- factor(colData(dds)$tissu_treatment, 
+                                       levels = c("Blood_WT_Case", "Blood_WT_Control", 
+                                                  "Lung_WT_Case", "Lung_WT_Control"),
+                                       labels = c("Blood Case", "Blood Control", 
+                                                  "Lung Case", "Lung Control"))
 sample_info <- read.table("sample_info.txt")
 #Removing the dependence of the variance on the mean
 result_vst_DESeq <- vst(dds, blind = TRUE)
